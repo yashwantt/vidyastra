@@ -14,7 +14,7 @@ const manageStudentRoutes = {
   },
   children: [
     /* {
-      path: 'new-enquiry',
+      path: 'new-enquiry', 
       name: 'Enquiry(New)',
       component: () => import('@/views/students/newenquiry'),
       meta: { title: 'New Enquiry', icon: 'form', permissions: ['manage user']},

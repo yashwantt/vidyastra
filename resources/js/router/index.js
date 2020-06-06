@@ -123,7 +123,7 @@ export const asyncRoutes = [
     path: '/students/slc/:id(\\d+)/:ad_id(\\d+)',
     component: () => import('@/views/students/GenerateSLC'),
     hidden: true,
-  },
+  }, 
   { path: '*', redirect: '/404', hidden: true },
 ];
 

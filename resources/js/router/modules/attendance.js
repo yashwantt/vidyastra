@@ -17,7 +17,7 @@ const manageAttendanceRoutes = {
       path: 'mark',
       component: () => import('@/views/attendance/Mark'),
       name: 'Mark',
-      meta: { title: 'markAttendance', icon: 'icon' },
+      meta: { title: 'markAttendance', icon: 'icon' }, 
     },
     {
       path: 'list',
