@@ -95,7 +95,7 @@ export const constantRoutes = [
       {
         path: 'list',
         name: 'Enquiries',
-        component: () => import('@/views/students/listenquiry'),
+        component: () => import('@/views/students/ListEnquiry'),
         meta: { title: 'enquiries', icon: 'icon', noCache: false },
       },
     ],
@@ -103,7 +103,7 @@ export const constantRoutes = [
   {
     path: '/new-enquiry',
     name: 'Enquiry(New)',
-    component: () => import('@/views/students/newenquiry'),
+    component: () => import('@/views/students/NewEnquiry'),
     meta: { title: 'New Enquiry', icon: 'form' },
   },
 ];

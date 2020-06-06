@@ -15,13 +15,13 @@ const manageAttendanceRoutes = {
   children: [
     {
       path: 'mark',
-      component: () => import('@/views/attendance/mark'),
+      component: () => import('@/views/attendance/Mark'),
       name: 'Mark',
       meta: { title: 'markAttendance', icon: 'icon' },
     },
     {
       path: 'list',
-      component: () => import('@/views/attendance/list'),
+      component: () => import('@/views/attendance/List'),
       name: 'Notify',
       meta: { title: 'notifyAttendance', icon: 'icon' },
     },
