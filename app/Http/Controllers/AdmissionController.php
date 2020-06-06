@@ -59,6 +59,7 @@ class AdmissionController extends Controller
                 }
             }
             $admissionInfo['admsStatus']='active';
+            
             $admission = new Admission($admissionInfo);
             $admission->save();
             $admsn_id['id']=$admission->id;
@@ -79,9 +80,22 @@ class AdmissionController extends Controller
                     }
                 }
             }
-            $admission->where('ad_id','=',$admission->ad_id)->update($admissionInfo);
-            $admsn_id['id']=$admission->ad_id;
-            $admsn_id['msg']='Record is updated successfully';
+            $remarks=[
+                "Was Allowed/Promised Promotion to Upper Class OR",
+                "Passed the Examination in Highest Class Available in School OR",
+                "Left the school mid-session to join a different school",
+                "Failed in Subject/Examination"
+            ];
+            if(in_array($data['slcRemarks'],$remarks)){
+                $admissionInfo['admsStatus']='Inactive';
+                $admission->where('ad_id','=',$admission->ad_id)->update($admissionInfo);
+                $admsn_id['id']=$admission->ad_id;
+                $admsn_id['msg']='Record is updated successfully';
+            } else {
+                $admission->where('ad_id','=',$admission->ad_id)->update($admissionInfo);
+                $admsn_id['id']=$admission->ad_id;
+                $admsn_id['msg']='Record is updated successfully';
+            }
         }
         return $admsn_id;
     }
