@@ -362,14 +362,17 @@
                   <el-col :md="16">
                     <h3 style="text-align:left">He/she was examined in <u><span v-if="admissionForm['class'][0]">{{ admissionForm['class'][0] }}</span> <span v-if="admissionForm['class'][1]">{{ admissionForm['class'][1] }}</span></u> and </h3>
                     <br>
-                    <el-radio-group v-model="admissionForm.slcRemarks" size="mini">
+                    <el-radio-group v-model="admissionForm.slcRemarks" size="mini" >
                       <ul>
                         <li><el-radio label="Was allowed/promised promotion to upper class">Was Allowed/Promised Promotion to Upper Class OR</el-radio></li>
                         <li><el-radio label="Passed the examination in highest class available in school">Passed the Examination in Highest Class Available in School OR</el-radio></li>
                         <li><el-radio label="Left the school mid-session to join a different school" />Left the School Mid-Session to join a different School, OR</el-radio></li>
                         <li><el-radio label="Failed in examination">Failed in Subject/Examination</el-radio></li>
+                        <li><el-radio label="" @change="focusRemark"> Other</el-radio> </li>
                       </ul>
                     </el-radio-group>
+                    <el-input type="text" width="15" ref="OthRemark" placeholder="other" v-model="admissionForm.slcRemarks"/>
+                    
                   </el-col>
                 </el-row>
                 <el-row>
@@ -576,6 +579,7 @@ export default {
 
         slcSchool: 'This School', slcDOA: '', slcDOW: '', slcPeriodFrom: '', slcPeriodTo: '', slcAtTotal: '',
         slcAttended: '', slcLeave: '', slcData: [], slcRemarks: 'None', issueDate: '', slcFileNo: '', admsStatus: 'active',
+        slcOtherRemark:'',
       },
       states: settings.states,
       classes: [],
@@ -611,6 +615,9 @@ export default {
     this.tempRoute = Object.assign({}, this.$route);
   },
   methods: {
+    focusRemark(){
+            this.$refs.OthRemark.focus();
+    },
     totalAttn(){
       const date1 = new Date(this.admissionForm.slcPeriodFrom);
       const date2 = new Date(this.admissionForm.slcPeriodTo);

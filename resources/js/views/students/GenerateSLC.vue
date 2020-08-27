@@ -20,10 +20,10 @@
           <strong>File No.:  <div class="formVal">{{ admissionForm.slcFileNo }}</div></strong>
         </el-col>
         <el-col :md="12">
-          <h2><span style="border: 1px solid; padding: 3px 15px;">SCHOOL LEAVING CERTIFICATE</span></h2>
+          <h2 style="border: 1px solid; padding: 3px 10px; margin:0 5px;"><span >SCHOOL LEAVING  CUM CHARACTER CERTIFICATE</span></h2>
           <h3>Academic Year: <div class="formVal">{{ admissionForm.session }}</div></h3>
         </el-col>
-        <el-col :md="6"><br>
+        <el-col :md="6"  class="text-right"><br>
           <strong>Issue Date:  <div class="formVal">{{ admissionForm.issueDate.split("-")[2] }}-{{ admissionForm.issueDate.split("-")[1] }}-{{ admissionForm.issueDate.split("-")[0] }}</div></strong>
         </el-col>
       </el-row>
@@ -56,9 +56,14 @@
       </el-row>
       <el-row>
         <el-col :md="24">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>CERTIFIED </strong>that <div class="formVal">{{ admissionForm.fullName }}</div>, S/o/D/o <div class="formVal">{{ admissionForm.father }}</div> attended this school up-to <div class="formVal">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>CERTIFIED </strong>that 
+          <div class="formVal">{{ admissionForm.fullName }}</div>, 
+          S/o/D/o <div class="formVal">{{ admissionForm.father }}</div> 
+          attended this school up-to <div class="formVal">
             {{ this.admissionForm.slcPeriodTo.split('-')[2] }}-{{ this.admissionForm.slcPeriodTo.split('-')[1] }}-{{ this.admissionForm.slcPeriodTo.split('-')[0] }}
-          </div>. He/she has paid all the sums due to school, and was allowed on above date to withdraw his/her name. He/she was reading in Class <div class="formVal"><span v-if="admissionForm['class'][0]">{{ admissionForm['class'][0] }}</span> <span v-if="admissionForm['class'][1]">{{ admissionForm['class'][1] }}</span>.
+          </div>. 
+          He/she has paid all the sums due to school, and was allowed on above date to withdraw his/her name. He/she was reading in Class <div class="formVal"><span v-if="admissionForm['class'][0]">{{ admissionForm['class'][0] }}</span> <span v-if="admissionForm['class'][1]">{{ admissionForm['class'][1] }}
+          </span>.
           </div>
         </el-col>
       </el-row>
@@ -253,6 +258,8 @@ export default {
 
   body {
       border: 1px solid #ccc;
+      font-size:1.1em;
+      line-height:25px;
   }
   #wrap{
       width:1050px;
@@ -266,6 +273,7 @@ export default {
   .formVal{
       font-weight: bold; display:inline;
       text-decoration: underline;
+      font-size:1.2em;
   }
   #admissionForm{
       font-size: 15px;
@@ -286,12 +294,13 @@ export default {
       text-align: right;
   }
   .el-row {
-      padding: 10px 0px;
+      padding: 0px 0px;
   }
   .el-col {
       padding: 5px 0px;
   }
   @media print{
+
     .el-col-md-6 {
         width: 25%;
     }
