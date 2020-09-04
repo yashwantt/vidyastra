@@ -86,7 +86,8 @@ class AdmissionController extends Controller
                 "Left the school mid-session to join a different school",
                 "Failed in Subject/Examination"
             ];
-            if(in_array($data['slcRemarks'],$remarks)){
+            //if(in_array($data['slcRemarks'],$remarks)){
+            if(strlen($data['slcRemarks'])>10){
                 $admissionInfo['admsStatus']='Inactive';
                 $admission->where('ad_id','=',$admission->ad_id)->update($admissionInfo);
                 $admsn_id['id']=$admission->ad_id;

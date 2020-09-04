@@ -250,6 +250,9 @@ class StudentController extends Controller
             }  
             //Log::info("From update");
             $admission_id=$admission->store($request, $student->st_id);
+            if(strlen($data['slcRemarks'])>10){
+                $studentInfo['status']='Inactive';
+            }
             Log::info($studentInfo);
             $student->where('st_id','=',$student->st_id)->update($studentInfo);
             
