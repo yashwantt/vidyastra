@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { fetchList } from '@/api/order';
+
 import settings from '@/api/settings';
 import Resource from '@/api/resource';
 const attendanceResource = new Resource('attendance');

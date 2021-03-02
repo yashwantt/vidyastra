@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { fetchList } from '@/api/order';
+
 import settings from '@/api/settings';
 import Resource from '@/api/resource';
 import { fetchUser } from '@/api/attendance';

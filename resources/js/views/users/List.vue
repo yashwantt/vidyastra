@@ -281,9 +281,9 @@ export default {
     settings['schools'][settings.myurl]['classes'].forEach(element => {
       if (parseInt(element.value) > settings['schools'][settings.myurl]['sections']['lg']){
         settings['schools'][settings.myurl]['subjects'].forEach(elemen => {
-          if (elemen != 'All'){
+          if (elemen !== 'All'){
             settings['schools'][settings.myurl]['sections']['gt'].forEach(eleme => {
-              if (eleme != 'NA') {
+              if (eleme !== 'NA') {
                 this.classes.push(element.value + ' | ' + elemen + ' | ' + eleme);
               }
             });
@@ -291,13 +291,13 @@ export default {
         });
       } else {
         settings['schools'][settings.myurl]['sections']['lt'].forEach(elemen => {
-          if (elemen != 'NA') {
+          if (elemen !== 'NA') {
             this.classes.push(element.value + ' | ' + elemen);
           }
         });
       }
     });
-    if (this.newUser.role == 'user'){
+    if (this.newUser.role === 'user'){
       this.newUser.seen = 'display:none';
     } else {
       this.newUser.seen = 'display:block';
@@ -307,7 +307,7 @@ export default {
     checkPermission,
     handleUserChange(){
       // console.log(this.newUser.role);
-      if (this.newUser.role == 'user'){
+      if (this.newUser.role === 'user'){
         this.newUser.seen = 'display:block';
       } else {
         this.newUser.seen = 'display:none';

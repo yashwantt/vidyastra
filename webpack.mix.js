@@ -39,16 +39,10 @@ mix
     'vue',
     'axios',
     'vuex',
-    'vue-router',
+    'vue-router', 
     'vue-i18n',
     'element-ui',
-    'echarts',
-    'highlight.js',
-    'sortablejs',
-    'dropzone',
-    'xlsx',
-    'tui-editor',
-    'codemirror',
+    'xlsx'
   ])
   .options({
     processCssUrls: false,

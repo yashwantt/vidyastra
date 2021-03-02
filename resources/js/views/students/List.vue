@@ -126,7 +126,7 @@ export default {
   created() {
     this.listQuery.atDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     this.setSession();
-    var hrs = today.getHours();
+    //var hrs = today.getHours();
     this.getList();
   },
   methods: {

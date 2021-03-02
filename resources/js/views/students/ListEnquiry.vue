@@ -147,7 +147,7 @@ export default {
     },
     async getList() {
       this.listLoading = true;
-      console.log(this.listQuery);
+      //console.log(this.listQuery);
       this.listQuery.imon = 'sList';
       // const { data } = await studentResource.list(this.listQuery);
       axios

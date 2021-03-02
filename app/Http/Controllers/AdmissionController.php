@@ -62,7 +62,7 @@ class AdmissionController extends Controller
             
             $admission = new Admission($admissionInfo);
             $admission->save();
-            $admsn_id['id']=$admission->id;
+            $admsn_id['id']=$admission->id; 
 
             $prevSess=explode('-',$data['session']);
             $prevSess=($prevSess[0]-1).'-'.($prevSess[1]-1);

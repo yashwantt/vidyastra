@@ -13,9 +13,7 @@
         <h3 class="text-center">Todo List</h3>
         <todo-list />
       </el-col>
-      <!--<el-col :xs="{span: 24}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="margin-bottom:30px;">
-        <box-card />
-      </el-col>-->
+    
     </el-row>
   </div>
 </template>
@@ -25,7 +23,7 @@
 import PanelGroup from './components/PanelGroup';
 import AttendanceTable from './components/AttendanceTable';
 import TodoList from './components/TodoList';
-import BoxCard from './components/BoxCard';
+
 import settings from '@/api/settings';
 
 const lineChartData = {
@@ -52,8 +50,7 @@ export default {
   components: {
     PanelGroup,
     AttendanceTable,
-    TodoList,
-    BoxCard,
+    TodoList
   },
   data() {
     return {

@@ -795,7 +795,7 @@ export default {
       };
       // console.log(slcRow);
       for (var prop in slcRow) {
-        if (slcRow[prop] == '') {
+        if (slcRow[prop] === '') {
           this.$notify({
             title: 'Warning',
             message: 'All SLC fields are mandatory..!',
@@ -831,7 +831,7 @@ export default {
     },
     compress(source_img_obj, quality, maxWidth, output_format){
       var mime_type = 'image/jpeg';
-      if (typeof output_format !== 'undefined' && output_format == 'png'){
+      if (typeof output_format !== 'undefined' && output_format === 'png'){
         mime_type = 'image/png';
       }
 
@@ -912,7 +912,7 @@ export default {
       };
 
       for (var prop in academicRow) {
-        if (academicRow[prop] == '') {
+        if (academicRow[prop] === '') {
           this.$notify({
             title: 'Warning',
             message: 'All academic fields are mandatory..!',
@@ -994,12 +994,12 @@ export default {
     },
     setSubjects: function() {
       this.subjects = [];
-      if (this.admissionForm.class[1] == 'Science') {
+      if (this.admissionForm.class[1] === 'Science') {
         this.admissionForm.subject = this.science.compulsary;
         this.subjects = this.science.choices;
-      } else if (this.admissionForm.class[1] == 'Commerce') {
+      } else if (this.admissionForm.class[1] === 'Commerce') {
         this.admissionForm.subject = this.commerce.compulsary;
-      } else if (this.admissionForm.class[1] == 'Humanities') {
+      } else if (this.admissionForm.class[1] === 'Humanities') {
         this.admissionForm.subject = this.humanities.compulsary;
         this.subjects = this.humanities.choices;
       } else {
@@ -1011,15 +1011,15 @@ export default {
           this.subjects.push(element);
         }
       });
-      if (this.admissionForm.class[1] == 'Science') {
+      if (this.admissionForm.class[1] === 'Science') {
         this.science.compulsary.forEach(el => {
           this.subjects.push(el);
         });
-      } else if (this.admissionForm.class[1] == 'Commerce') {
+      } else if (this.admissionForm.class[1] === 'Commerce') {
         this.commerce.compulsary.forEach(el => {
           this.subjects.push(el);
         });
-      } else if (this.admissionForm.class[1] == 'Humanities') {
+      } else if (this.admissionForm.class[1] === 'Humanities') {
         this.humanities.compulsary.forEach(el => {
           this.subjects.push(el);
         });
@@ -1036,7 +1036,7 @@ export default {
         this.admissionForm.subject.forEach(element => {
           const gt = settings['schools'][settings.myurl]['sections']['gt'];
           gt.forEach(elemen => {
-            if (elemen != 'NA') {
+            if (elemen !== 'NA') {
               this.subjectSections.push(element + ' | ' + elemen);
             }
           });

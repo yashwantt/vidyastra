@@ -670,16 +670,16 @@ export default {
         uid: [{ required: true, message: '*Required', trigger: 'change' }],
         gender: [{ required: true, message: '*Required', trigger: 'change' }],
         dob: [{ required: true, message: '*Required', trigger: 'change' }],
-        // contact: [{ required: true, message: '*Required', trigger: 'change' }],
-        // father: [{ required: true, message: '*Required', trigger: 'change' }],
-        /* occupation: [
+        //contact: [{ required: true, message: '*Required', trigger: 'change' }],
+        //father: [{ required: true, message: '*Required', trigger: 'change' }],
+        /*occupation: [
           { required: true, message: '*Required', trigger: 'change' },
         ],*/
 
-        // mother: [{ required: true, message: '*Required', trigger: 'change' }],
+        //mother: [{ required: true, message: '*Required', trigger: 'change' }],
         country: [{ required: true, message: '*Required', trigger: 'change' }],
         state: [{ required: true, message: '*Required', trigger: 'change' }],
-        // city: [{ required: true, message: '*Required', trigger: 'change' }],
+        //city: [{ required: true, message: '*Required', trigger: 'change' }],
       },
       loading: false,
       admissionForm: {
@@ -727,7 +727,7 @@ export default {
   },
   tempRoute: {},
   created(){
-    // this.listQuery.userId=this.$store.getters.userId;
+    //this.listQuery.userId=this.$store.getters.userId;
     this.classes = settings['schools'][settings.myurl]['classes'];
     this.admissionForm.doa = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     this.admissionForm.issueDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -760,7 +760,7 @@ export default {
       const diffTime = Math.abs(date2 - date1);
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       this.admissionForm.slcAtTotal = diffDays;
-      // console.log(diffDays);
+      //console.log(diffDays);
     },
     addSLC: function(){
       const slcRow = {
@@ -773,9 +773,9 @@ export default {
         slcAttended: this.admissionForm.slcAttended,
         slcLeave: this.admissionForm.slcLeave,
       };
-      // console.log(slcRow);
+      //console.log(slcRow);
       for (var prop in slcRow) {
-        if (slcRow[prop] == '') {
+        if (slcRow[prop] === '') {
           this.$notify({
             title: 'Warning',
             message: 'All SLC fields are mandatory..!',
@@ -785,7 +785,7 @@ export default {
           return;
         }
       }
-      // console.log(slcRow);
+      //console.log(slcRow);
       this.admissionForm.slcData.push(slcRow);
       ++this.addCounts;
     },
@@ -807,11 +807,11 @@ export default {
     unlinkImg(el){
       this.admissionForm.unlinkImgs.push(el);
       this.admissionForm.images.splice(this.admissionForm.images.indexOf(el), 1);
-      // console.log(this.admissionForm.unlinkImgs);
+      //console.log(this.admissionForm.unlinkImgs);
     },
     compress(source_img_obj, quality, maxWidth, output_format){
       var mime_type = 'image/jpeg';
-      if (typeof output_format !== 'undefined' && output_format == 'png'){
+      if (typeof output_format !== 'undefined' && output_format === 'png'){
         mime_type = 'image/png';
       }
 
@@ -828,7 +828,7 @@ export default {
       cvs.width = natW;
       cvs.height = natH;
 
-      var ctx = cvs.getContext('2d').drawImage(source_img_obj, 0, 0, natW, natH);
+      //var ctx = cvs.getContext('2d').drawImage(source_img_obj, 0, 0, natW, natH);
       var newImageData = cvs.toDataURL(mime_type, quality / 100);
       var result_image_obj = new Image();
       result_image_obj.src = newImageData;
@@ -857,8 +857,8 @@ export default {
       }, 3000);
     },
     createImage(file, n) {
-      const isJPG = file.type === 'image/jpeg';
-      const isLt100 = file.size / 1024 < 100;
+      //const isJPG = file.type === 'image/jpeg';
+      //const isLt100 = file.size / 1024 < 100;
 
       const reader = new FileReader();
       const vm = this;
@@ -866,7 +866,7 @@ export default {
         if (n){
           vm.admissionForm.imgs = e.target.result;
           setTimeout(function(){
-            // console.log(vm.compress(vm.$refs.myimgs, 75, 550, "jpg").src);
+            //console.log(vm.compress(vm.$refs.myimgs, 75, 550, "jpg").src);
             vm.admissionForm.images.push(vm.compress(vm.$refs.myimgs, 75, 550, 'jpg').src);
             vm.admissionForm.imgs = '';
           }, 1000);
@@ -884,7 +884,7 @@ export default {
       if (ad_id){
         fetchStudent(id, thisSession, ad_id)
           .then(response => {
-          // console.log(response.data);
+          //console.log(response.data);
             response.data[0].forEach(element => {
               this.admissionForm.ad_id = element.ad_id;
 
@@ -937,7 +937,7 @@ export default {
 
               this.admissionForm.slcFileNo = element.slcFileNo;
               this.admissionForm.admsStatus = element.admsStatus;
-            // console.log(element.at_id);
+            //console.log(element.at_id);
             });
           })
           .catch(err => {
@@ -947,7 +947,7 @@ export default {
         axios
           .get('/api/enquiries/' + id, {}).then(response => {
             console.log(response.data);
-            // console.log(response.data.data);
+            //console.log(response.data.data);
             var element = response.data.data.records;
             console.log(element);
 
@@ -995,13 +995,13 @@ export default {
             this.admissionForm.images = (JSON.parse(element.attachments)) ? JSON.parse(element.attachments) : [];
             this.admissionForm.ac_id = element.ac_id;
             this.admissionForm.prevClassResult = JSON.parse(element.prevClassResult) ? JSON.parse(element.prevClassResult) : [];
-            /* this.admissionForm.slcData=JSON.parse(element.slcData)?JSON.parse(element.slcData):[];
+            /*this.admissionForm.slcData=JSON.parse(element.slcData)?JSON.parse(element.slcData):[];
             this.admissionForm.slcRemarks=element.slcRemarks?element.slcRemarks:'None';
             this.admissionForm.issueDate=element.issueDate?element.issueDate:today.getFullYear()+'-'+(today.getMonth() + 1)+'-'+today.getDate();;
 
             this.admissionForm.slcFileNo=element.slcFileNo;*/
             this.admissionForm.admsStatus = element.admsStatus;
-            // console.log(element.at_id);
+            //console.log(element.at_id);
           })
           .catch(err => {
             console.log(err);
@@ -1020,7 +1020,7 @@ export default {
       };
 
       for (var prop in academicRow) {
-        if (academicRow[prop] == '') {
+        if (academicRow[prop] === '') {
           this.$notify({
             title: 'Warning',
             message: 'All academic fields are mandatory..!',
@@ -1059,10 +1059,10 @@ export default {
       });
       this.$refs[formName].validate(valid => {
         if (valid) {
-          // console.log(this.admissionForm);
+          //console.log(this.admissionForm);
 
           createStudent(this.admissionForm).then(response => {
-            // console.log(response.data);
+            //console.log(response.data);
 
             this.$notify({
               title: 'Success',
@@ -1070,15 +1070,15 @@ export default {
               type: 'success',
               duration: 3000,
             });
-            // console.log(response.data['st_id']);
-            // this.$router.push("/students/form/"+response.data['st_id']);
-            /* this.$confirm('Do you print admission form..?', 'Warning', {
+            //console.log(response.data['st_id']);
+            //this.$router.push("/students/form/"+response.data['st_id']);
+            /*this.$confirm('Do you print admission form..?', 'Warning', {
                 confirmButtonText: 'Yes',
                 cancelButtonText: 'No',
                 type: 'warning'
               }).then(() => {
                 let route = this.$router.resolve({path: '/students/form/'+response.data['st_id']+'/'+response.data['ad_id']});
-                // let route = this.$router.resolve('/link/to/page'); // This also works.
+                //let route = this.$router.resolve('/link/to/page'); //This also works.
                 window.open(route.href);
               }).catch(err=>{
                 console.log(err);
@@ -1093,12 +1093,12 @@ export default {
           }).catch(error => {
             console.log(error);
             this.loading = false;
-            // this.submitForm(formName);
+            //this.submitForm(formName);
           });
           this.loading = false;
           return true;
         } else {
-          // console.log('Error submit!!');
+          //console.log('Error submit!!');
           this.$notify({
             title: 'Error',
             message: 'Error in inserting, check student record required..!',
@@ -1119,18 +1119,18 @@ export default {
       this.$refs[formName].resetFields();
     },
     setSubjects(n = 0) {
-      if (n && this.prevClassSubject == this.admissionForm.class[1]){
+      if (n && this.prevClassSubject === this.admissionForm.class[1]){
         return false;
       }
       {
         this.prevClassSubject = this.admissionForm.class[1];
         this.subjects = [];
-        if (this.admissionForm.class[1] == 'Science') {
+        if (this.admissionForm.class[1] === 'Science') {
           this.admissionForm.subject = this.science.compulsary;
           this.subjects = this.science.choices;
-        } else if (this.admissionForm.class[1] == 'Commerce') {
+        } else if (this.admissionForm.class[1] === 'Commerce') {
           this.admissionForm.subject = this.commerce.compulsary;
-        } else if (this.admissionForm.class[1] == 'Humanities') {
+        } else if (this.admissionForm.class[1] === 'Humanities') {
           this.admissionForm.subject = this.humanities.compulsary;
           this.subjects = this.humanities.choices;
         } else {
@@ -1142,15 +1142,15 @@ export default {
             this.subjects.push(element);
           }
         });
-        if (this.admissionForm.class[1] == 'Science') {
+        if (this.admissionForm.class[1] === 'Science') {
           this.science.compulsary.forEach(el => {
             this.subjects.push(el);
           });
-        } else if (this.admissionForm.class[1] == 'Commerce') {
+        } else if (this.admissionForm.class[1] === 'Commerce') {
           this.commerce.compulsary.forEach(el => {
             this.subjects.push(el);
           });
-        } else if (this.admissionForm.class[1] == 'Humanities') {
+        } else if (this.admissionForm.class[1] === 'Humanities') {
           this.humanities.compulsary.forEach(el => {
             this.subjects.push(el);
           });
@@ -1163,12 +1163,12 @@ export default {
     },
     changeSubjects(){
       this.subjectSections = [];
-      // console.log(this.admissionForm.subject);
+      //console.log(this.admissionForm.subject);
       if (parseInt(this.admissionForm.class[0]) > settings['schools'][settings.myurl]['sections']['lg']){
         this.admissionForm.subject.forEach(element => {
           const gt = settings['schools'][settings.myurl]['sections']['gt'];
           gt.forEach(elemen => {
-            if (elemen != 'NA') {
+            if (elemen !== 'NA') {
               this.subjectSections.push(element + ' | ' + elemen);
             }
           });
@@ -1250,7 +1250,7 @@ export default {
   .image-upload img, .image-upload i {
       cursor: pointer;
   }
-    /* css For Menu */
+    /*css For Menu */
   .dropdown-submenu {
       position: relative;
   }
@@ -1260,7 +1260,7 @@ export default {
       left: 100%;
       margin-top: -1px;
   }
-  /* Other CSS */
+  /*Other CSS */
 
   #search{
       display:block;

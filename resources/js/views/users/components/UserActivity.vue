@@ -223,9 +223,9 @@ export default {
     settings['schools'][settings.myurl]['classes'].forEach(element => {
       if (parseInt(element.value) > settings['schools'][settings.myurl]['sections']['lg']){
         this.subjects.forEach(elemen => {
-          if (elemen != 'All'){
+          if (elemen !== 'All'){
             settings['schools'][settings.myurl]['sections']['lt'].forEach(eleme => {
-              if (eleme != 'NA'){
+              if (eleme !== 'NA'){
                 this.classes.push(element.value + ' | ' + elemen + ' | ' + eleme);
               } else {
                 this.classes.push(element.value + ' | ' + elemen);
@@ -235,7 +235,7 @@ export default {
         });
       } else {
         settings['schools'][settings.myurl]['sections']['lt'].forEach(elemen => {
-          if (elemen != 'NA') {
+          if (elemen !== 'NA') {
             this.classes.push(element.value + ' | ' + elemen);
           } else {
             this.classes.push(element.value);
@@ -249,7 +249,7 @@ export default {
     getRole() {
       const roles = this.user.roles.map(value => this.$options.filters.uppercaseFirst(value));
       // console.log("this "+roles);
-      if (roles == 'User'){
+      if (roles === 'User'){
         return true;// roles.join(' | ');
       } else {
         return false;// roles.join(' | ');

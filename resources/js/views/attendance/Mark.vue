@@ -185,7 +185,7 @@ export default {
     this.setSession();
     var hrs = today.getHours();
     this.todayhm = today.getHours() + ':' + today.getMinutes();
-    console.log(this.todayhm);
+    //console.log(this.todayhm);
     if (hrs < 12) {
       this.atSession = 'Morning';
     } else if (hrs >= 12) {

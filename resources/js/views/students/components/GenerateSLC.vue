@@ -639,10 +639,10 @@ export default {
       };
       // console.log(slcRow);
       for (var prop in slcRow) {
-        if (prop == 'slcLeave') {
+        if (prop === 'slcLeave') {
           continue;
         }
-        if (slcRow[prop] == '') {
+        if (slcRow[prop] === '') {
           this.$notify({
             title: 'Warning',
             message: 'All SLC fields are mandatory..!',
@@ -678,7 +678,7 @@ export default {
     },
     compress(source_img_obj, quality, maxWidth, output_format){
       var mime_type = 'image/jpeg';
-      if (typeof output_format !== 'undefined' && output_format == 'png'){
+      if (typeof output_format !==  'undefined' && output_format === 'png'){
         mime_type = 'image/png';
       }
 
@@ -820,15 +820,15 @@ export default {
                 // console.log(elemen);
                 const subject = elemen.split(' | ');
                 // console.log(subject);
-                if (subject[1] == 'English' && subject[3] == 'P'){
+                if (subject[1] === 'English' && subject[3] === 'P'){
                   atPresent++;
-                } else if (subject[1] == 'English' && subject[3] == 'L'){
+                } else if (subject[1] === 'English' && subject[3] === 'L'){
                   atLeave++;
                 }
               });
-            } else if (attend[0].Morning == 'P' || attend[0].Evening == 'P'){
+            } else if (attend[0].Morning === 'P' || attend[0].Evening === 'P'){
               atPresent++;
-            } else if (attend[0].Morning == 'L' || attend[0].Evening == 'L'){
+            } else if (attend[0].Morning === 'L' || attend[0].Evening === 'L'){
               atLeave++;
             }
           });
@@ -852,7 +852,7 @@ export default {
       };
 
       for (var prop in academicRow) {
-        if (academicRow[prop] == '') {
+        if (academicRow[prop] === '') {
           this.$notify({
             title: 'Warning',
             message: 'All academic fields are mandatory..!',
@@ -921,16 +921,16 @@ export default {
       this.$refs[formName].resetFields();
     },
     setSubjects(n = 0) {
-      if (n && this.prevClassSubject == this.admissionForm.class[1]){
+      if (n && this.prevClassSubject === this.admissionForm.class[1]){
         return false;
       }
       this.subjects = [];
-      if (this.admissionForm.class[1] == 'Science') {
+      if (this.admissionForm.class[1] === 'Science') {
         this.admissionForm.subject = this.science.compulsary;
         this.subjects = this.science.choices;
-      } else if (this.admissionForm.class[1] == 'Commerce') {
+      } else if (this.admissionForm.class[1] === 'Commerce') {
         this.admissionForm.subject = this.commerce.compulsary;
-      } else if (this.admissionForm.class[1] == 'Humanities') {
+      } else if (this.admissionForm.class[1] === 'Humanities') {
         this.admissionForm.subject = this.humanities.compulsary;
         this.subjects = this.humanities.choices;
       } else {
